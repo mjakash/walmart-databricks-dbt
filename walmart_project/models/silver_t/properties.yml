@@ -1,0 +1,58 @@
+models:
+    - name: products_t
+      columns: 
+        - name: product_id
+          data_tests:
+            - not_null
+            - unique :
+                config : 
+                    where : "price > 0"
+
+    - name: orders_t
+      columns: 
+        - name: order_id
+          data_tests:
+            - not_null
+            - unique
+    - name: employees_t
+      columns:
+        - name: salary
+          data_tests:
+            - not_null:
+                config: 
+                  where: "salary > 0"
+    - name: stores_t
+      columns:
+        - name: city
+          data_tests:
+            - not_null
+        - name: province
+          data_tests:
+            - not_null
+        - name: country
+          data_tests:
+            - not_null
+    - name: customers_t
+      columns:
+        - name: city
+          data_tests:
+            - not_null
+        - name: province
+          data_tests:
+            - not_null
+        - name: country
+          data_tests:
+            - not_null
+    - name: order_items_t
+      columns:
+        - name: unit_price
+          data_tests:
+            - not_null:
+                config : 
+                    where : "unit_price > 0"
+        - name: line_amount
+          data_tests:
+            - not_null:
+                config : 
+                    where : "line_amount > 0"
+        
